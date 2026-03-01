@@ -1,41 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-    <meta charset="UTF-8">
-    <title>Untitled</title>
-    <link rel="stylesheet" href="./style.css">
-
-  </head>
-    
-  <body>
-  <div class="wrap">
-  <div class="hero">
-    <h1 class="title">VIRAL GLAM DOLL PROMPT BUILDER</h1>
-    <p class="sub">Tap chips + type customs. Copy or download the prompt 💅🏾✨</p>
-
-    <div class="toolbar">
-      <button class="btn-gold" id="btnClear">CLEAR ALL</button>
-      <button class="btn-pink" id="btnRandom">RANDOMIZE</button>
-      <button class="btn-cyan" id="btnCopy">COPY PROMPT</button>
-      <button class="btn-gold" id="btnDownload">DOWNLOAD TXT</button>
+<div class="app">
+  <header class="top">
+    <div class="brand">
+      <div class="title">Viral Glam Doll Prompt Builder</div>
+      <div class="tag">Bright Pink + Lime • Full options • Presets A/B/C • Randomizer</div>
     </div>
-  </div>
 
-  <div class="panel">
-    <div class="grid" id="formGrid"></div>
-
-    <div class="preview">
-      <div class="field">
-        <div class="label">Prompt Preview ✦</div>
-        <textarea id="promptOut" readonly></textarea>
+    <div class="controls">
+      <div class="searchWrap">
+        <input id="search" type="text" placeholder="Search sections (lashes, nameplate, platform, heels, bag, etc.)..." />
+        <div id="sectionCount" class="countPill">0 sections</div>
       </div>
-      <div class="toast" id="toast"></div>
-    </div>
-  </div>
-</div>
-    <script  src="./script.js"></script>
 
-  </body>
-  
-</html>
+      <div class="btnRow">
+        <button id="btnBuild" class="btn ghost" type="button">Build Prompt</button>
+        <button id="btnCopy" class="btn" type="button">Copy</button>
+        <button id="btnRandom" class="btn" type="button">Randomize</button>
+        <button id="btnClear" class="btn danger" type="button">Clear All</button>
+        <button id="btnReset" class="btn ghost" type="button">Reset Defaults</button>
+      </div>
+
+      <div class="btnRow">
+        <button id="presetA" class="btn preset" type="button">Preset A</button>
+        <button id="presetB" class="btn preset" type="button">Preset B</button>
+        <button id="presetC" class="btn preset hot" type="button">Preset C</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="grid">
+    <div class="panel left">
+      <div class="panelHd">
+        <div class="panelTitle">Builder Sections</div>
+        <div class="panelSub">Tap chips to select. Multi-select chips stack.</div>
+      </div>
+      <div id="sections" class="sections"></div>
+    </div>
+
+    <div class="panel right">
+      <div class="panelHd">
+        <div class="panelTitle">Text + Nameplate + Custom Notes</div>
+        <div class="panelSub">These inputs feed your final prompt.</div>
+      </div>
+
+      <div class="form">
+        <label for="charName">Character name</label>
+        <input id="charName" type="text" placeholder="e.g., Bree" />
+
+        <label for="nameplate">Nameplate necklace text</label>
+        <input id="nameplate" type="text" placeholder="e.g., QUEEN, BOSS, DMD" />
+
+        <label for="quoteText">Text sticker quote (optional)</label>
+        <input id="quoteText" type="text" placeholder="e.g., Girl Bye, Rich Auntie Energy, CEO Mode" />
+
+        <label for="quoteStyle">Text sticker style (optional)</label>
+        <input id="quoteStyle" type="text" placeholder="e.g., puffy letters, glitter outline, sticker cutline" />
+
+        <label for="customColors">Custom color notes</label>
+        <input id="customColors" type="text" placeholder="e.g., hot pink + lime, black + neon" />
+
+        <label for="customBag">Custom bag notes</label>
+        <input id="customBag" type="text" placeholder="e.g., add charms, chain strap, mini top handle" />
+
+        <label for="customShoeColorway">Custom shoe colorway</label>
+        <input id="customShoeColorway" type="text" placeholder="e.g., pink/lime with icy sole" />
+
+        <label for="extraNotes">Extra notes</label>
+        <textarea id="extraNotes" rows="4" placeholder="Any extra styling notes..."></textarea>
+      </div>
+
+      <div class="panelHd" style="margin-top:14px;">
+        <div class="panelTitle">Generated Prompt</div>
+        <div class="panelSub">Copy-ready output.</div>
+      </div>
+
+      <textarea id="output" rows="14"></textarea>
+    </div>
+  </section>
+
+  <div id="toast" class="toast">Saved</div>
+</div>
